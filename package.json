@@ -1,6 +1,6 @@
 {
-  "name": "team-dev-server",
-  "version": "1.0.0",
+  "name": "team-dev-frontend-server",
+  "version": "1.0.1",
   "description": "",
   "type": "module",
   "main": "src/index.js",
