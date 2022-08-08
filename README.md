@@ -417,7 +417,6 @@ Authorization: Bearer &lt;token&gt;
 
 </details>
 
-
 <details>
 <summary><strong>PATCH /user/:id</strong>
  (hardcoded responses)</summary>
