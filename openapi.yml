@@ -8,6 +8,28 @@ basePath: /
 schemes:
   - http
 paths:
+  /user:
+    post:
+      summary: Create a user
+      tags:
+        - users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserPost"
+      responses:
+        201:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  movie:
+                    type: object
+                    $ref: "#/components/schemas/User"
   /users:
     get:
       summary: Retrieve a list of users
@@ -64,28 +86,6 @@ paths:
                 type: object
                 properties:
                   customer:
-                    type: object
-                    $ref: "#/components/schemas/User"
-  /user:
-    post:
-      summary: Create a user
-      tags:
-        - users
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/UserPost"
-      responses:
-        201:
-          description: OK
-          content: 
-            application/json:
-              schema:
-                type: object
-                properties:
-                  movie:
                     type: object
                     $ref: "#/components/schemas/User"
   /cohort:
@@ -145,6 +145,58 @@ paths:
                     type: object
                     items:
                       $ref: '#/components/schemas/Cohort'
+  /post:
+    post:
+      summary: Create a posting
+      tags:
+        - posts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostPost"
+      responses:
+        201:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  movie:
+                    type: object
+                    $ref: "#/components/schemas/Post"
+  /posts:
+    get:
+      summary: Retrieve a list of posts
+      description: All posts
+      tags:
+        - posts
+      responses:
+        200:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Post'
+  /post/{id}:
+    patch:
+      summary: Update a post
+      description: The updated post is included in the response data
+      tags:
+        - posts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Post"
 components:
   schemas:
     User: 
@@ -208,4 +260,34 @@ components:
         start_date: 
           type: string
         end_date: 
+          type: string    
+    Post: 
+      type: object
+      properties:
+        id: 
+          type: integer
+        content: 
+          type: string
+        createdAt: 
+          type: string
+        postComments:
+          type: string
+        edited:
+          type: string
+        user: 
+          type: object
+          items:
+            $ref: '#/components/schemas/User'       
+        profile: 
+          type: string
+        postLikes:
+          type: integer
+    PostPost: 
+      type: object
+      properties:
+        content: 
+          type: string
+        userId: 
+          type: string
+        createdAt: 
           type: string
