@@ -88,7 +88,63 @@ paths:
                   movie:
                     type: object
                     $ref: "#/components/schemas/User"
-
+  /cohort:
+    post:
+      summary: Create a cohort
+      tags:
+        - cohorts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CohortPost"
+      responses:
+        201:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  movie:
+                    type: object
+                    $ref: "#/components/schemas/Cohort"
+    get:
+      summary: Retrieve all cohorts
+      description: A list of cohorts, including start and end dates
+      tags:
+        - cohorts
+      responses:
+        200:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Cohort'
+  /cohort/{id}:
+    get:
+      summary: Retrieve a cohort
+      description: The cohort related to the id
+      tags:
+        - cohorts
+      responses:
+        200:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: object
+                    items:
+                      $ref: '#/components/schemas/Cohort'
 components:
   schemas:
     User: 
@@ -96,21 +152,21 @@ components:
       properties:
         id: 
           type: integer
-        cohort_id: 
+        cohortId: 
           type: integer
         role: 
           type: string
-        first_name: 
+        firstName: 
           type: string
-        last_name: 
+        lastName: 
           type: string
         email: 
           type: string
         biography: 
           type: string
-        github_url: 
+        githubUrl: 
           type: string
-        profile_url: 
+        profileUrl: 
           type: string
     UserPost: 
       type: object
@@ -129,3 +185,27 @@ components:
             type: string
         profile_url: 
             type: string
+    Cohort: 
+      type: object
+      properties:
+        id: 
+          type: integer
+        cohortName: 
+          type: string
+        startDate: 
+          type: string
+        endDate: 
+          type: string
+        users: 
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    CohortPost: 
+      type: object
+      properties:
+        cohort_name: 
+          type: string
+        start_date: 
+          type: string
+        end_date: 
+          type: string
