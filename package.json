@@ -9,7 +9,8 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "lint": "eslint src",
-    "routes": "node src/tasks/show-routes.js"
+    "routes": "node src/tasks/show-routes.js",
+    "doc": "npx redoc-cli build openapi.yml -o docs/index.html"
   },
   "repository": {
     "type": "git",
@@ -35,7 +36,8 @@
     "husky": "^8.0.1",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.2",
-    "prisma": "^3.12.0"
+    "prisma": "^3.12.0",
+    "redoc-cli": "^0.13.19"
   },
   "dependencies": {
     "@prisma/client": "^3.12.0",

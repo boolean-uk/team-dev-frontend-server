@@ -25,7 +25,7 @@ paths:
                   users:
                     type: array
                     items:
-                      $ref: '#/components/schemas/user'
+                      $ref: '#/components/schemas/User'
   /user/{id}:
     get:
       summary: Retrieve a user
@@ -70,13 +70,13 @@ paths:
     post:
       summary: Create a user
       tags:
-        - user
+        - users
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/patcompohs/schemas/UserPost"
+              $ref: "#/components/schemas/UserPost"
       responses:
         201:
           description: OK
