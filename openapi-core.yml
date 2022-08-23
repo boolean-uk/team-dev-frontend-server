@@ -1,0 +1,131 @@
+openapi: 3.0.0
+info:
+  title: Team Dev Frontend Server - Core Criteria
+  version: 0.1.1
+servers:
+  - url: http://localhost:4040
+basePath: /
+schemes:
+  - http
+paths:
+  /users:
+    get:
+      summary: Retrieve a list of users
+      description: All users across all cohorts
+      tags:
+        - users
+      responses:
+        200:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/user'
+  /user/{id}:
+    get:
+      summary: Retrieve a user
+      description: The user related to the id
+      tags:
+        - users
+      responses:
+        200:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: object
+                    items:
+                      $ref: '#/components/schemas/User'
+    patch:
+      summary: Update a user
+      description: The updated user details are included in the response data
+      tags:
+        - users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserPost"
+      responses:
+        201:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  customer:
+                    type: object
+                    $ref: "#/components/schemas/User"
+  /user:
+    post:
+      summary: Create a user
+      tags:
+        - user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/patcompohs/schemas/UserPost"
+      responses:
+        201:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  movie:
+                    type: object
+                    $ref: "#/components/schemas/User"
+
+components:
+  schemas:
+    User: 
+      type: object
+      properties:
+        id: 
+          type: integer
+        cohort_id: 
+          type: integer
+        role: 
+          type: string
+        first_name: 
+          type: string
+        last_name: 
+          type: string
+        email: 
+          type: string
+        biography: 
+          type: string
+        github_url: 
+          type: string
+        profile_url: 
+          type: string
+    UserPost: 
+      type: object
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email: 
+          type: string
+      biography: 
+          type: string
+      github_url: 
+          type: string
+      password: 
+          type: string
+      profile_url: 
+          type: string
