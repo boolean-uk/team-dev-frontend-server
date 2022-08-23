@@ -22,6 +22,10 @@ If you use [Insomnia](https://insomnia.rest/), you can import [this request coll
 
 ## API Spec
 
+[Team Dev Frontend Server API](https://boolean-uk.github.io/team-dev-frontend-server/).
+
+### Legacy API Spec
+
 <details>
 <summary><strong>POST /user</strong>
 </summary>
