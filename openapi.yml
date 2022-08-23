@@ -121,11 +121,11 @@ components:
           type: string
         email: 
           type: string
-      biography: 
-          type: string
-      github_url: 
-          type: string
-      password: 
-          type: string
-      profile_url: 
-          type: string
+        biography: 
+            type: string
+        github_url: 
+            type: string
+        password: 
+            type: string
+        profile_url: 
+            type: string
