@@ -30,24 +30,6 @@ paths:
                   movie:
                     type: object
                     $ref: "#/components/schemas/User"
-  /users:
-    get:
-      summary: Retrieve a list of users
-      description: All users across all cohorts
-      tags:
-        - users
-      responses:
-        200:
-          description: OK
-          content: 
-            application/json:
-              schema:
-                type: object
-                properties:
-                  users:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/User'
   /user/{id}:
     get:
       summary: Retrieve a user
@@ -88,6 +70,24 @@ paths:
                   customer:
                     type: object
                     $ref: "#/components/schemas/User"
+  /users:
+    get:
+      summary: Retrieve a list of users
+      description: All users across all cohorts
+      tags:
+        - users
+      responses:
+        200:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
   /cohort:
     post:
       summary: Create a cohort
@@ -167,6 +167,18 @@ paths:
                   movie:
                     type: object
                     $ref: "#/components/schemas/Post"
+  /post/{id}:
+    patch:
+      summary: Update a post
+      description: The updated post is included in the response data
+      tags:
+        - posts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Post"
   /posts:
     get:
       summary: Retrieve a list of posts
@@ -185,18 +197,24 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Post'
-  /post/{id}:
-    patch:
-      summary: Update a post
-      description: The updated post is included in the response data
+  /courses:
+    get:
+      summary: Retrieve a list of courses
+      description: All courses
       tags:
-        - posts
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Post"
+        - courses
+      responses:
+        200:
+          description: OK
+          content: 
+            application/json:
+              schema:
+                type: object
+                properties:
+                  users:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Course'
 components:
   schemas:
     User: 
@@ -288,6 +306,41 @@ components:
         content: 
           type: string
         userId: 
+          type: string
+        createdAt: 
+          type: string
+    Course: 
+      type: object
+      properties:
+        id: 
+          type: integer
+        courseName: 
+          type: string
+        user: 
+          type: array
+          items:
+            $ref: '#/components/schemas/Module'
+        createdAt: 
+          type: string
+    Module: 
+      type: object
+      properties:
+        id: 
+          type: integer
+        moduleName: 
+          type: string
+        units: 
+          type: array
+          items:
+            $ref: '#/components/schemas/Unit'
+        createdAt: 
+          type: string    
+    Unit: 
+      type: object
+      properties:
+        id: 
+          type: integer
+        unitName: 
           type: string
         createdAt: 
           type: string
