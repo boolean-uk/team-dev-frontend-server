@@ -1,5 +1,7 @@
 # Team Simulation - Server
 
+Running at [https://team-dev-frontend-server.herokuapp.com/](https://team-dev-frontend-server.herokuapp.com/).
+
 ## Setting up
 
 1. Copy `.env.example` and name it `.env`
