@@ -12,6 +12,9 @@
     "routes": "node src/tasks/show-routes.js",
     "doc": "npx redoc-cli build openapi.yml -o docs/index.html"
   },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/boolean-uk/team-dev-server.git"
@@ -45,6 +48,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^8.5.1"
   }
 }
