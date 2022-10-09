@@ -1,4 +1,4 @@
-# Team Simulation - Server
+# Team Dev Frontend Server
 
 Running at [https://team-dev-frontend-server.herokuapp.com/](https://team-dev-frontend-server.herokuapp.com/).
 
@@ -17,6 +17,12 @@ Running at [https://team-dev-frontend-server.herokuapp.com/](https://team-dev-fr
 4. `npm ci` to install dependencies
 5. `npx prisma migrate reset` to apply migrations to your db
 6. `npm run dev` to run the app
+
+## Database Design
+
+![Cohort Manager ERD](/images/cohortManager.png)
+
+_Cohort Manager ERD_
 
 ## Sample Requests
 
