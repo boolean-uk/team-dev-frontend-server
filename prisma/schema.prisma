@@ -158,6 +158,7 @@ conversation      Conversation  @relation(fields: [conversationId], references: 
 
 @@id([userId, conversationId])
 }
+
 model Course {
   id         Int      @id @default(autoincrement())
   courseName String   @unique
