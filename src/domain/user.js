@@ -59,7 +59,7 @@ export default class User {
       githubUrl,
       profileUrl || defaultProfileUrl,
       passwordHash,
-      role
+      role || 'STUDENT'
     )
   }
 
