@@ -29,20 +29,20 @@ export default class User {
   }
 
   static async fromJson(json) {
-    // eslint-disable-next-line camelcase
     const {
-      // eslint-disable-next-line camelcase
+      role,
       firstName,
-      // eslint-disable-next-line camelcase
       lastName,
       email,
       biography,
-      // eslint-disable-next-line camelcase
-      github_url,
+      githubUrl,
       password,
-      // eslint-disable-next-line camelcase
-      profile_url
+      profileUrl
     } = json
+
+    console.log('fromJSON', json)
+
+    console.log('role', role, firstName, lastName, email)
 
     let passwordHash
     if (password) {
@@ -52,17 +52,14 @@ export default class User {
     return new User(
       null,
       null,
-      // eslint-disable-next-line camelcase
       firstName,
-      // eslint-disable-next-line camelcase
       lastName,
       email,
       biography,
-      // eslint-disable-next-line camelcase
-      github_url,
-      // eslint-disable-next-line camelcase
-      profile_url || defaultProfileUrl,
-      passwordHash
+      githubUrl,
+      profileUrl || defaultProfileUrl,
+      passwordHash,
+      role
     )
   }
 
@@ -76,7 +73,7 @@ export default class User {
     githubUrl,
     profileUrl,
     passwordHash,
-    role = 'STUDENT'
+    role
   ) {
     this.id = id
     this.cohortId = cohortId
@@ -94,14 +91,14 @@ export default class User {
     return {
       user: {
         id: this.id,
-        cohort_id: this.cohortId,
+        cohortId: this.cohortId,
         role: this.role,
         firstName: this.firstName,
         lastName: this.lastName,
         email: this.email,
         biography: this.bio,
-        github_url: this.githubUrl,
-        profile_url: this.profileUrl
+        githubUrl: this.githubUrl,
+        profileUrl: this.profileUrl
       }
     }
   }

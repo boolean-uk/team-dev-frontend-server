@@ -6,7 +6,9 @@ import { sendDataResponse, sendMessageResponse } from '../utils/responses.js'
 import { JWT_EXPIRY, JWT_SECRET } from '../utils/config.js'
 
 export const create = async (req, res) => {
+  console.log('req', req.body)
   const userToCreate = await User.fromJson(req.body)
+  console.log('user', userToCreate)
 
   try {
     const existingUser = await User.findByEmail(userToCreate.email)
