@@ -10,12 +10,12 @@
       "modified": 1649418138233,
       "created": 1649407799357,
       "url": "https://team-dev-frontend-server.herokuapp.com:4000/user",
-      "name": "Localhost Create User",
+      "name": "Create User",
       "description": "",
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n  \"first_name\": \"Nathan\",\n  \"last_name\": \"King\",\n  \"email\": \"ngk5@gmail.com\",\n  \"password\": \"mysecurepassword\",\n  \"biography\": \"Hello world\",\n  \"github_url\": \"https://github.com/vherus\"\n}"
+        "text": "{\n  \"first_name\": \"Nathan\",\n  \"last_name\": \"King\",\n  \"email\": \"ngk5@gmail.com\",\n  \"password\": \"mysecurepassword\",\n  \"biography\": \"Hello world\",\n  \"githubUrl\": \"https://github.com/vherus\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -52,7 +52,7 @@
       "modified": 1649419034532,
       "created": 1649408503619,
       "url": "https://team-dev-frontend-server.herokuapp.com:4000/login",
-      "name": "Localhost Login",
+      "name": "Login",
       "description": "",
       "method": "POST",
       "body": {
@@ -84,7 +84,7 @@
       "modified": 1649431643504,
       "created": 1649412868986,
       "url": "https://team-dev-frontend-server.herokuapp.com:4000/post",
-      "name": "Localhost Create Post",
+      "name": "Create Post",
       "description": "",
       "method": "POST",
       "body": {
@@ -122,7 +122,7 @@
       "modified": 1649434615438,
       "created": 1649431648833,
       "url": "https://team-dev-frontend-server.herokuapp.com:4000/cohort",
-      "name": "Localhost Create Cohort",
+      "name": "Create Cohort",
       "description": "",
       "method": "POST",
       "body": {},
@@ -152,7 +152,7 @@
       "modified": 1649434759094,
       "created": 1649434621399,
       "url": "https://team-dev-frontend-server.herokuapp.com:4000/log",
-      "name": "Localhost Create Delivery Log",
+      "name": "Create Delivery Log",
       "description": "",
       "method": "POST",
       "body": {
@@ -190,7 +190,7 @@
       "modified": 1649433065412,
       "created": 1649432950857,
       "url": "https://team-dev-frontend-server.herokuapp.com:4000/user/1",
-      "name": "Localhost Add User To Cohort",
+      "name": "Add User To Cohort",
       "description": "",
       "method": "PATCH",
       "body": {
@@ -228,7 +228,7 @@
       "modified": 1649415496579,
       "created": 1649415488481,
       "url": "https://team-dev-frontend-server.herokuapp.com:4000/posts",
-      "name": "Localhost Get Posts",
+      "name": "Get Posts",
       "description": "",
       "method": "GET",
       "body": {},
@@ -258,7 +258,7 @@
       "modified": 1649416277801,
       "created": 1649416179607,
       "url": "https://team-dev-frontend-server.herokuapp.com:4000/user/1",
-      "name": "Localhost Get User",
+      "name": "Get User",
       "description": "",
       "method": "GET",
       "body": {},
@@ -288,7 +288,7 @@
       "modified": 1649418055091,
       "created": 1649416736298,
       "url": "https://team-dev-frontend-server.herokuapp.com:4000/users?first_name=Nathan",
-      "name": "Localhost Get Users",
+      "name": "Get Users",
       "description": "",
       "method": "GET",
       "body": {},
