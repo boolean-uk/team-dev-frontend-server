@@ -6,7 +6,7 @@ import DeliveryLog, {
 import DeliveryLogLines from '../domain/deliveryLogLines.js'
 
 export const create = async (req, res) => {
-  const { date, cohort_id: cohortId, lines } = req.body
+  const { date, cohortId, lines } = req.body
   const userId = req.user.id
   const newDeliveryLogData = {
     date: new Date(date),

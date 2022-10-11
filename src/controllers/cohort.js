@@ -8,11 +8,7 @@ import { sendDataResponse, sendMessageResponse } from '../utils/responses.js'
 import User from '../domain/user.js'
 
 export const create = async (req, res) => {
-  const {
-    cohort_name: cohortName,
-    start_date: startDate,
-    end_date: endDate
-  } = req.body
+  const { cohortName, startDate, endDate } = req.body
 
   const startDateFormatted = new Date(startDate)
   const endDateFormatted = new Date(endDate)

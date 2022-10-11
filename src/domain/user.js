@@ -32,9 +32,9 @@ export default class User {
     // eslint-disable-next-line camelcase
     const {
       // eslint-disable-next-line camelcase
-      first_name,
+      firstName,
       // eslint-disable-next-line camelcase
-      last_name,
+      lastName,
       email,
       biography,
       // eslint-disable-next-line camelcase
@@ -53,9 +53,9 @@ export default class User {
       null,
       null,
       // eslint-disable-next-line camelcase
-      first_name,
+      firstName,
       // eslint-disable-next-line camelcase
-      last_name,
+      lastName,
       email,
       biography,
       // eslint-disable-next-line camelcase
@@ -96,8 +96,8 @@ export default class User {
         id: this.id,
         cohort_id: this.cohortId,
         role: this.role,
-        first_name: this.firstName,
-        last_name: this.lastName,
+        firstName: this.firstName,
+        lastName: this.lastName,
         email: this.email,
         biography: this.bio,
         github_url: this.githubUrl,

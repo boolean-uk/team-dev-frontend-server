@@ -48,11 +48,7 @@ export const getById = async (req, res) => {
 
 export const getAll = async (req, res) => {
   // eslint-disable-next-line camelcase
-  const {
-    first_name: firstName,
-    cohort: inCohort,
-    cohort_id: cohortId
-  } = req.query
+  const { firstName, inCohort, cohortId } = req.query
 
   const whereData = {}
   if (inCohort === 'false') {
@@ -81,7 +77,7 @@ export const getAll = async (req, res) => {
 }
 
 export const updateById = async (req, res) => {
-  const { cohort_id: cohortId } = req.body
+  const { cohortId } = req.body
   const userToUpdateId = Number(req.params.id)
   try {
     const userToUpdate = await User.findById(userToUpdateId)
@@ -108,7 +104,7 @@ export const updateById = async (req, res) => {
     const updatedProfile = await userToUpdate.update()
 
     return sendDataResponse(res, 200, {
-      user: { cohort_id: updatedProfile.cohortId }
+      user: { cohortId: updatedProfile.cohortId }
     })
   } catch (error) {
     console.error('error updating profile', error.message)

@@ -71,9 +71,9 @@ export default class Cohort {
     return {
       cohort: {
         id: this.id,
-        cohort_name: this.name,
-        start_date: this.startDate,
-        end_date: this.endDate
+        cohortName: this.name,
+        startDate: this.startDate,
+        endDate: this.endDate
       }
     }
   }

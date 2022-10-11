@@ -44,7 +44,7 @@ paths:
       security:
         - bearerAuth: []
       parameters:
-        - name: first_name
+        - name: firstName
           in: query
           description: Search all users by first name if provided
           schema:
@@ -1043,9 +1043,9 @@ components:
       properties:
         id: 
           type: integer
-        first_name:
+        firstName:
           type: string
-        last_name:
+        lastName:
           type: string
         email:
           type: string
@@ -1238,9 +1238,9 @@ components:
                   type: integer
                  role:
                   type: string
-                 first_name:
+                 firstName:
                   type: string
-                 last_name:
+                 lastName:
                   type: string
                  email:
                   type: string
@@ -1271,9 +1271,9 @@ components:
                type: integer 
               role:
                type: string
-              first_name:
+              firstName:
                type: string
-              last_name:
+              lastName:
                 type: string
               email:
                 type: string
@@ -1346,9 +1346,9 @@ components:
                   properties:
                     id:
                       type: integer
-                    first_name:
+                    firstName:
                       type: string
-                    last_name:
+                    lastName:
                       type: string
                 lines:
                   type: array
