@@ -130,15 +130,15 @@ paths:
     patch:
       tags:
         - user
-      summary: Update a the cohort to which this user belongs
+      summary: Update the cohort to which this user belongs
       description: Creates list of users with given input array
-      operationId: asd
+      operationId: userUpdateCohort
       security:
         - bearerAuth: []
       parameters:
         - name: id
           in: path
-          description: 'The user id that needs to be fetched'
+          description: 'The user id that needs to be updated'
           required: true
           schema:
             type: string
@@ -158,6 +158,43 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CohortAddUser'          
+        '401':
+          description: fail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+
+  /user/update/{id}:
+    patch:
+      tags:
+        - user
+      summary: Update the profile of this user
+      description: Updates the profile of this user
+      operationId: userUpdate
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: 'The user id that needs to be updated'
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The profile info
+        content:
+          application/json:
+            schema:
+                $ref: '#/components/schemas/UpdateUser'
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'          
         '401':
           description: fail
           content:
@@ -1062,6 +1099,35 @@ components:
           type: string
         githubURL:
           type: string
+
+    UpdateUser:
+      type: object
+      properties:
+        email: 
+          type: string
+        password: 
+          type: string  
+        cohortId: 
+          type: integer
+        role: 
+          type: string
+        profile: 
+          type: object
+          properties:
+            update: 
+                type: object
+                properties:
+                  firstName: 
+                    type: string
+                  lastName: 
+                    type: string
+                  bio: 
+                    type: string
+                  githubUrl: 
+                    type: string
+                  profileUrl: 
+                    type: string
+
     Posts:
       type: object
       properties:
