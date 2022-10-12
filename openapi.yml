@@ -920,10 +920,10 @@ components:
                   format: int64
                 createdAt:
                   type: string
-                  format: date-time
+                  format: string
                 updatedAt:
                   type: string
-                  format: date-time
+                  format: string
             deletedComments:
               type: object
               properties:
@@ -950,10 +950,10 @@ components:
                     format: int64
                   createdAt:
                     type: string
-                    format: date-time
+                    format: string
                   updatedAt:
                     type: string
-                    format: date-time
+                    format: string
                   user:
                     type: object
                     properties:
@@ -1006,10 +1006,10 @@ components:
                   type: integer
                 createdAt:
                   type: string
-                  format: date-time
+                  format: string
                 updatedAt:
                   type: string
-                  format: date-time
+                  format: string
                 user:
                   type: object
                   properties:
@@ -1080,10 +1080,10 @@ components:
                 type: integer
               createdAt:
                 type: string
-                format: date-time
+                format: string
               updatedAt:
                 type: string
-                format: date-time
+                format: string
               user:
                 type: object
                 properties:
@@ -1124,10 +1124,10 @@ components:
                       type: integer
                     createdAt:
                       type: string
-                      format: date-time
+                      format: string
                     updatedAt:
                       type: string
-                      format: date-time
+                      format: string
                     user:
                       type: object
                       properties:
@@ -1172,10 +1172,10 @@ components:
                       type: integer
                     createdAt:
                       type: string
-                      format: date-time
+                      format: string
                     updatedAt:
                       type: string
-                      format: date-time
+                      format: string
                     user:
                       type: object
                       properties:
@@ -1216,9 +1216,9 @@ components:
                 cohortName:
                   type: string
                 startDate: 
-                  type: date-time
+                  type: string
                 endDate: 
-                  type: date-time
+                  type: string
     CreatedCohort:
       type: object
       properties:
@@ -1234,9 +1234,9 @@ components:
                 cohortName:
                   type: string
                 startDate: 
-                  type: date-time
+                  type: string
                 endDate: 
-                  type: date-time
+                  type: string
     CohortAddUser:
       type: object
       properties:
