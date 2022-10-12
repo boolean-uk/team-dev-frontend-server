@@ -130,7 +130,7 @@ paths:
     patch:
       tags:
         - user
-      summary: Update a cohort
+      summary: Update a the cohort to which this user belongs
       description: Creates list of users with given input array
       operationId: asd
       security:
@@ -138,7 +138,7 @@ paths:
       parameters:
         - name: id
           in: path
-          description: 'The name that needs to be fetched. Use user1 for testing. '
+          description: 'The user id that needs to be fetched'
           required: true
           schema:
             type: string
@@ -164,6 +164,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+
   /log:
     post:
       tags:
@@ -1203,22 +1204,18 @@ components:
                             githubUrl:
                               type: string
                             profileImageUrl:
-                              type: string
+                              type: string                           
     Cohort:
       type: object
       properties:
-        status:
-          type: string
-        data:
+        cohort:
           properties:
-            cohort:
-              properties:
-                cohortName:
-                  type: string
-                startDate: 
-                  type: string
-                endDate: 
-                  type: string
+            cohortName:
+              type: string
+            startDate: 
+              type: string
+            endDate: 
+              type: string
     CreatedCohort:
       type: object
       properties:
