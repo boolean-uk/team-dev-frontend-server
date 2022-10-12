@@ -687,7 +687,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Cohort'
+              type: object
+              properties:
+                cohortName:
+                  type: string
+                startDate: 
+                  type: string
+                endDate: 
+                  type: string
       responses:
         201:
           description: success
@@ -1270,18 +1277,7 @@ components:
                             githubUrl:
                               type: string
                             profileImageUrl:
-                              type: string                           
-    Cohort:
-      type: object
-      properties:
-        cohort:
-          properties:
-            cohortName:
-              type: string
-            startDate: 
-              type: string
-            endDate: 
-              type: string
+                              type: string   
     CreatedCohort:
       type: object
       properties:
