@@ -452,8 +452,6 @@ paths:
                   properties:
                     content:
                       type: string
-                    parentId:
-                      type: integer
       parameters:
         - name: id
           in: path

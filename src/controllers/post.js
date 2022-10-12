@@ -33,8 +33,11 @@ export const editPost = async (req, res) => {
 }
 
 export const createComment = async (req, res) => {
-  const postId = +req.query.postId
+  const { id } = req.params
   const { content } = req.body
+
+  // console.log('got comment', content)
+
   if (!content) {
     return sendDataResponse(res, 400, { err: 'Must provide content' })
   }
@@ -42,7 +45,7 @@ export const createComment = async (req, res) => {
     const commentToCreate = await PostComment.fromJson(req.body)
     commentToCreate.userId = req.user.id
     commentToCreate.profileId = req.user.id
-    commentToCreate.postId = postId
+    commentToCreate.postId = Number(id)
     const comment = await commentToCreate.save()
     return sendDataResponse(res, 201, comment)
   } catch (err) {
