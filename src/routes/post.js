@@ -4,6 +4,7 @@ import {
   getAll,
   createComment,
   findAllComments,
+  findAllPostLikes,
   editComment,
   editPost,
   deletePost,
@@ -21,5 +22,6 @@ router.patch('/:id/comment/:commentId', validateAuthentication, editComment)
 router.get('/comment', validateAuthentication, findAllComments)
 router.delete('/posts/:id', validateAuthentication, deletePost)
 router.post('/:id/postLike', validateAuthentication, updateLike)
+router.get('/postLike', validateAuthentication, findAllPostLikes)
 
 export default router

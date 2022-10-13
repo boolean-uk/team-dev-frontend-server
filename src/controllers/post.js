@@ -64,6 +64,7 @@ export const createComment = async (req, res) => {
     return sendDataResponse(res, 400, { err: err.message })
   }
 }
+
 export const findAllComments = async (req, res) => {
   try {
     const comment = await PostComment.findAll()
@@ -71,6 +72,19 @@ export const findAllComments = async (req, res) => {
       throw new Error(`Comments not found`)
     }
     const data = { comment }
+    return sendDataResponse(res, 201, data)
+  } catch (err) {
+    return sendDataResponse(res, 400, { err: err.message })
+  }
+}
+
+export const findAllPostLikes = async (req, res) => {
+  try {
+    const postLikes = await PostLike.findAll()
+    if (postLikes.length === 0) {
+      throw new Error(`Post Likes not found`)
+    }
+    const data = { postLikes }
     return sendDataResponse(res, 201, data)
   } catch (err) {
     return sendDataResponse(res, 400, { err: err.message })

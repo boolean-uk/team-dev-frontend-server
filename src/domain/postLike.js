@@ -48,4 +48,15 @@ export default class PostLike {
       return PostLike.fromDb(updatedPost)
     }
   }
+
+  static async findAll() {
+    return PostLike._findMany()
+  }
+
+  static async _findMany() {
+    const foundPostLikes = await dbClient.postLike.findMany({
+      orderBy: { createdAt: 'desc' }
+    })
+    return foundPostLikes.map((postLike) => PostLike.fromDb(postLike))
+  }
 }

@@ -294,6 +294,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+
+  /post/postLike:
+    get:
+      tags:
+        - postLike
+      summary: Get all post likes
+      description: get all post likes
+      operationId: getPostLikes
+      security:
+        - bearerAuth: []
+      responses: 
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllPostLikes'          
+        '401':
+          description: fail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /post/{id}/postLike:
     post:
       tags:
@@ -322,41 +346,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LikePost'
-        404:
-          description: fail
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        409:
-          description: fail
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    delete:
-      tags:
-        - post
-      summary: Delete a post like
-      description: This can only be done by the logged in user.
-      operationId: deleteLike
-      security:
-        - bearerAuth: []
-      parameters:
-        - name: id
-          in: path
-          description: 'The id of the post that is being liked.'
-          required: true
-          schema:
-            type: string
-      responses:
-        201:
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LikePost'
+                $ref: '#/components/schemas/PostLike'
         404:
           description: fail
           content:
@@ -978,7 +968,12 @@ components:
               properties:
                 count:
                   type: integer
-    LikePost:
+    AllPostLikes:
+      type: array
+      items:
+        $ref: '#/components/schemas/PostLike'
+
+    PostLike:
       type: object
       properties:
         status:
@@ -986,51 +981,49 @@ components:
         data:
           type: object
           properties:
-            likes:
-              type: array
-              items:
-                type: object
-                properties:
-                  userId:
-                    type: integer
-                    format: int64
-                  postId:
-                    type: integer
-                    format: int64
-                  createdAt:
-                    type: string
-                    format: string
-                  updatedAt:
-                    type: string
-                    format: string
-                  user:
-                    type: object
-                    properties:
-                      email:
-                        type: string
-                      id:
-                        type: integer
-                      cohortId:
-                        type: integer
-                      role:
-                        type: string
-                      profile:
-                        type: object
-                        properties:
-                          id:
-                            type: integer
-                          userId:
-                            type: integer
-                          firstName:
-                            type: string
-                          lastName:
-                            type: string
-                          bio:
-                            type: string
-                          githubUrl:
-                            type: string
-                          profileImageUrl:
-                            type: string 
+            items:
+              type: object
+              properties:
+                userId:
+                  type: integer
+                  format: int64
+                postId:
+                  type: integer
+                  format: int64
+                createdAt:
+                  type: string
+                  format: string
+                updatedAt:
+                  type: string
+                  format: string
+                user:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                    id:
+                      type: integer
+                    cohortId:
+                      type: integer
+                    role:
+                      type: string
+                    profile:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        userId:
+                          type: integer
+                        firstName:
+                          type: string
+                        lastName:
+                          type: string
+                        bio:
+                          type: string
+                        githubUrl:
+                          type: string
+                        profileImageUrl:
+                          type: string 
     Comment:
       type: object
       properties:
