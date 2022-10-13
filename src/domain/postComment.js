@@ -57,6 +57,18 @@ export default class PostComment {
     return PostComment.fromDb(createdComment)
   }
 
+  async update() {
+    const updatedComment = await dbClient.postComment.update({
+      where: {
+        id: this.id
+      },
+      data: {
+        content: this.content
+      }
+    })
+    return PostComment.fromDb(updatedComment)
+  }
+
   static async findAll() {
     return PostComment._findMany()
   }

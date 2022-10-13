@@ -32,6 +32,18 @@ export const editPost = async (req, res) => {
   }
 }
 
+export const editComment = async (req, res) => {
+  const { commentId } = req.params
+  try {
+    const commentToEdit = await PostComment.fromJson(req.body)
+    commentToEdit.id = Number(commentId)
+    const comment = await commentToEdit.update()
+    return sendDataResponse(res, 201, comment)
+  } catch (err) {
+    return sendDataResponse(res, 400, { err: err.message })
+  }
+}
+
 export const createComment = async (req, res) => {
   const { id } = req.params
   const { content } = req.body
