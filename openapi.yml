@@ -298,7 +298,7 @@ paths:
   /post/postLike:
     get:
       tags:
-        - postLike
+        - post
       summary: Get all post likes
       description: get all post likes
       operationId: getPostLikes
@@ -996,34 +996,8 @@ components:
                 updatedAt:
                   type: string
                   format: string
-                user:
-                  type: object
-                  properties:
-                    email:
-                      type: string
-                    id:
-                      type: integer
-                    cohortId:
-                      type: integer
-                    role:
-                      type: string
-                    profile:
-                      type: object
-                      properties:
-                        id:
-                          type: integer
-                        userId:
-                          type: integer
-                        firstName:
-                          type: string
-                        lastName:
-                          type: string
-                        bio:
-                          type: string
-                        githubUrl:
-                          type: string
-                        profileImageUrl:
-                          type: string 
+                active:
+                  type: boolean
     Comment:
       type: object
       properties:
