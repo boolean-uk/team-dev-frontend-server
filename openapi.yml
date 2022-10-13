@@ -309,7 +309,13 @@ paths:
           description: 'The id of the post that is being liked.'
           required: true
           schema:
-            type: string
+            type: object
+            properties:
+              active: 
+                type: boolean
+              postLikeId: 
+                type: integer
+                nullable: true
       responses:
         201:
           description: success

@@ -102,8 +102,9 @@ export const deletePost = async (req, res) => {
 }
 
 export const updateLike = async (req, res) => {
+  const userId = req.user.id
   const postId = Number(req.params.id)
-  const { active, postLikeId, userId } = req.body
+  const { active, postLikeId } = req.body
 
   try {
     if (!postId) throw new Error('The ID you have provided is incorrect')
