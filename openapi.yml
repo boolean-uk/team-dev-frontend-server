@@ -1363,7 +1363,7 @@ components:
                 type: string
               biography:
                 type: string
-              github_url:
+              githubUrl:
                 type: string
     Note:
       type: object

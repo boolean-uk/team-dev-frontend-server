@@ -49,7 +49,6 @@ export const getById = async (req, res) => {
 }
 
 export const getAll = async (req, res) => {
-  // eslint-disable-next-line camelcase
   const { firstName, inCohort, cohortId } = req.query
 
   const whereData = {}
@@ -118,6 +117,8 @@ export const updateProfile = async (req, res) => {
   const newUserProfile = await User.fromJson(req.body)
   const userToUpdateId = Number(req.params.id)
   newUserProfile.id = userToUpdateId
+
+  // console.log('updating', newUserProfile, userToUpdateId, newUserProfile.id)
 
   try {
     const existingUser = await User.findById(userToUpdateId)

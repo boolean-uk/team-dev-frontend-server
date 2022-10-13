@@ -31,6 +31,7 @@ export default class User {
   static async fromJson(json) {
     const {
       role,
+      cohortId,
       firstName,
       lastName,
       email,
@@ -40,10 +41,6 @@ export default class User {
       profileUrl
     } = json
 
-    console.log('fromJSON', json)
-
-    console.log('role', role, firstName, lastName, email)
-
     let passwordHash
     if (password) {
       passwordHash = await bcrypt.hash(password, 8)
@@ -51,7 +48,7 @@ export default class User {
 
     return new User(
       null,
-      null,
+      cohortId,
       firstName,
       lastName,
       email,
