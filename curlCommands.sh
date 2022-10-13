@@ -6,3 +6,5 @@ curl -X PATCH http://localhost:4000/post/1/comment/23 -H "Authorization: Bearer 
 curl -X POST http://localhost:4000/post/1/postLike -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NTY2NDA0NSwiZXhwIjoxNjY1NzUwNDQ1fQ.IGmmVfV1IsxCgoZWmF3kS-yQ90C736rCwGpL0v01uPk" -H "Content-Type: application/json" -d '{"active": true}'
 
 curl -X POST http://localhost:4000/post/1/postLike -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NTY2NDA0NSwiZXhwIjoxNjY1NzUwNDQ1fQ.IGmmVfV1IsxCgoZWmF3kS-yQ90C736rCwGpL0v01uPk" -H "Content-Type: application/json" -d '{"active": false, "postId": 11}'
+
+curl http://localhost:4000/post/postLike -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NTY2NDA0NSwiZXhwIjoxNjY1NzUwNDQ1fQ.IGmmVfV1IsxCgoZWmF3kS-yQ90C736rCwGpL0v01uPk" -H "Content-Type: application/json"
