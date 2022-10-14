@@ -1008,30 +1008,30 @@ components:
         status:
           type: string
         data:
-          type: array
-          items:
-            $ref: '#/components/schemas/PostLike'
+          type: object
+          properties:
+            postLikes:
+              type: array
+              items:
+                $ref: '#/components/schemas/PostLike'
 
     PostLike:
       type: object
       properties:
-        items:
-          type: object
-          properties:
-            userId:
-              type: integer
-              format: int64
-            postId:
-              type: integer
-              format: int64
-            createdAt:
-              type: string
-              format: string
-            updatedAt:
-              type: string
-              format: string
-            active:
-              type: boolean
+        userId:
+          type: integer
+          format: int64
+        postId:
+          type: integer
+          format: int64
+        createdAt:
+          type: string
+          format: string
+        updatedAt:
+          type: string
+          format: string
+        active:
+          type: boolean
 
     AllCohorts:
       type: object
