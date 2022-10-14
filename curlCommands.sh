@@ -10,3 +10,5 @@ curl -X POST http://localhost:4000/post/1/postLike -H "Authorization: Bearer eyJ
 curl http://localhost:4000/post/postLike -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NTY2NDA0NSwiZXhwIjoxNjY1NzUwNDQ1fQ.IGmmVfV1IsxCgoZWmF3kS-yQ90C736rCwGpL0v01uPk" -H "Content-Type: application/json"
 
 curl http://localhost:4000/cohort -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NTY2NDA0NSwiZXhwIjoxNjY1NzUwNDQ1fQ.IGmmVfV1IsxCgoZWmF3kS-yQ90C736rCwGpL0v01uPk" -H "Content-Type: application/json"
+
+curl -X PATCH http://localhost:4000/post/1 -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NTY2NDA0NSwiZXhwIjoxNjY1NzUwNDQ1fQ.IGmmVfV1IsxCgoZWmF3kS-yQ90C736rCwGpL0v01uPk" -H "Content-Type: application/json" -d '{"content": "I am endlessly patient editing a DB"}'

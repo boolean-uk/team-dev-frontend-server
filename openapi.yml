@@ -1009,8 +1009,7 @@ components:
           type: string
         data:
           type: array
-          properties:
-            $ref: '#/components/schemas/PostLike'
+          $ref: '#/components/schemas/PostLike'
 
     PostLike:
       type: object
@@ -1040,8 +1039,7 @@ components:
           type: string
         data:
           type: array
-          properties:
-            $ref: '#/components/schemas/Cohort'
+          $ref: '#/components/schemas/Cohort'
 
     Cohort:
       type: object
