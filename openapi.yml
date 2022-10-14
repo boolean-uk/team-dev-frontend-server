@@ -367,7 +367,13 @@ paths:
       description: edit post by id
       operationId: editPost
       security:
-        - bearerAuth: []
+        - bearerAuth: []      
+      requestBody:
+        description: content to edit
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/editPost'
       parameters:
         - name: id
           in: path
@@ -1111,7 +1117,14 @@ components:
                         githubUrl:
                           type: string
                         profileImageUrl:
-                          type: string                          
+                          type: string    
+
+    editPost:
+     type: object
+     properties:
+      content: 
+       type: string
+
     editComment:
      type: object
      properties:
