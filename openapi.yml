@@ -122,8 +122,9 @@ paths:
                     type: object
                     properties:
                       user:
-                        schema:
-                          $ref: '#/components/schemas/User'
+                        properties:
+                          schema:
+                            $ref: '#/components/schemas/User'
         '400':
           description: fail
           content:
