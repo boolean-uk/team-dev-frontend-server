@@ -114,7 +114,16 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      user:
+                        schema:
+                          $ref: '#/components/schemas/User'
         '400':
           description: fail
           content:
