@@ -118,9 +118,11 @@ paths:
                   status:
                     type: string
                   data:
-                    type: object
-                    schema:
-                      $ref: '#/components/schemas/User'                                             
+                    type: object                    
+                    properties:
+                      user:
+                         $ref: '#/components/schemas/User'   
+                                             
         '400':
           description: fail
           content:
