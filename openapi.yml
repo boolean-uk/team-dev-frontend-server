@@ -28,8 +28,7 @@ paths:
             schema:
               $ref: '#/components/schemas/User'
       responses:
-       '201':
-        
+       '201':        
           description: Created
           content:
             application/json:
@@ -120,26 +119,8 @@ paths:
                     type: string
                   data:
                     type: object
-                    properties:
-                      user:
-                        type: object
-                        properties:
-                          id: 
-                            type: integer
-                          role:
-                            type: string
-                          firstName:
-                            type: string
-                          lastName:
-                            type: string
-                          email:
-                            type: string
-                          biography:
-                            type: string
-                          githubUrl:
-                            type: string 
-                          profileUrl:
-                            type: string        
+                    schema:
+                      $ref: '#/components/schemas/User
                                              
         '400':
           description: fail
@@ -1172,23 +1153,23 @@ components:
       
     User:
       type: object
-      properties:
+      properties:        
         id: 
           type: integer
+        role:
+          type: string
         firstName:
           type: string
         lastName:
           type: string
         email:
           type: string
-        password:
-          type: string
         biography:
           type: string
         githubUrl:
-          type: string
+          type: string 
         profileUrl:
-          type: string
+          type: string    
 
     UpdateUser:
       type: object
