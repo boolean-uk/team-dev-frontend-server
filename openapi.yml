@@ -119,9 +119,9 @@ paths:
                     type: string
                   data:
                     type: object
-                    schema:
-                      $ref: '#/components/schemas/User
-                                             
+                    properties:
+                      schema:
+                        $ref: '#/components/schemas/User'                                             
         '400':
           description: fail
           content:
