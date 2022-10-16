@@ -124,7 +124,23 @@ paths:
                       user:
                         type: object
                         properties:
-                          $ref: '#/components/schemas/User'                          
+                          id: 
+                            type: integer
+                          role:
+                            type: string
+                          firstName:
+                            type: string
+                          lastName:
+                            type: string
+                          email:
+                            type: string
+                          biography:
+                            type: string
+                          githubUrl:
+                            type: string 
+                          profileUrl:
+                            type: string        
+                                             
         '400':
           description: fail
           content:
@@ -1169,7 +1185,9 @@ components:
           type: string
         biography:
           type: string
-        githubURL:
+        githubUrl:
+          type: string
+        profileUrl:
           type: string
 
     UpdateUser:
