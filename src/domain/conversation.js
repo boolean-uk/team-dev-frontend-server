@@ -5,27 +5,27 @@ export default class Conversation {
     return new Conversation(
       conversation.name,
       conversation.usersIds,
+      conversation.messages,
       conversation.id,
       conversation.createdAt,
       conversation.updatedAt,
-      conversation.users,
-      conversation.messages
+      conversation.users
     )
   }
 
   static async fromJson(json) {
-    const { name, usersIds } = json
-    return new Conversation(name, usersIds)
+    const { name, usersIds, messages } = json
+    return new Conversation(name, usersIds, messages)
   }
 
-  constructor(name, usersIds, id, createdAt, updatedAt, users, messages) {
+  constructor(name, usersIds, messages, id, createdAt, updatedAt, users) {
     this.name = name
     this.usersIds = usersIds
+    this.messages = messages
     this.id = id
     this.createdAt = createdAt
     this.updatedAt = updatedAt
     this.users = users
-    this.messages = messages
   }
 
   async save() {

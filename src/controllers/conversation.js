@@ -2,10 +2,10 @@ import { sendDataResponse } from '../utils/responses.js'
 import Conversation from '../domain/conversation.js'
 
 export const createConversation = async (req, res) => {
-  const { name, usersIds } = req.body
+  const { name, usersIds, messages } = req.body
 
   try {
-    if (!name || usersIds.length === 0) {
+    if (!name || usersIds.length === 0 || messages.length === 0) {
       throw new Error('Please provide appropriate content')
     }
     const conversationToCreate = await Conversation.fromJson(req.body)
@@ -17,7 +17,7 @@ export const createConversation = async (req, res) => {
 }
 
 export const findAllConversationsByUserId = async (req, res) => {
-  const { userId } = req.params
+  const userId = req.user.id
 
   try {
     const conversations = await Conversation.findAll(userId)
