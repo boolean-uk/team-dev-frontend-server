@@ -17,3 +17,7 @@ curl -X PATCH http://localhost:4000/post/1 -H "Authorization: Bearer eyJhbGciOiJ
 curl http://localhost:4000/user -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NTkyODM1NSwiZXhwIjoxNjY2MDE0NzU1fQ.3Y23Hq3HEgSTaG41pJlTuTEm3pQqSLJs_CQt8S9dzvk" -H "Content-Type: application/json"
 
 curl http://localhost:4000/post/commentLike -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NTkyODM1NSwiZXhwIjoxNjY2MDE0NzU1fQ.3Y23Hq3HEgSTaG41pJlTuTEm3pQqSLJs_CQt8S9dzvk" -H "Content-Type: application/json"
+
+curl -X POST http://localhost:4000/note/1 -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjAwNzI0NiwiZXhwIjoxNjY2MDkzNjQ2fQ.Gg5aEgkWDBLclh4h_5-aiuj1QYT4OHR-oJzyHZwKozI" -H "Content-Type: application/json" -d '{"content": "totally awesome"}'
+
+curl http://localhost:4000/note/1 -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjAwNzI0NiwiZXhwIjoxNjY2MDkzNjQ2fQ.Gg5aEgkWDBLclh4h_5-aiuj1QYT4OHR-oJzyHZwKozI" -H "Content-Type: application/json"
