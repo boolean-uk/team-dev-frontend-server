@@ -2,6 +2,7 @@ import { sendDataResponse } from '../utils/responses.js'
 import Post from '../domain/post.js'
 import PostComment from '../domain/postComment.js'
 import PostLike from '../domain/postLike.js'
+import CommentLike from '../domain/commentLike.js'
 
 export const create = async (req, res) => {
   const { content } = req.body
@@ -91,6 +92,19 @@ export const findAllPostLikes = async (req, res) => {
   }
 }
 
+export const findAllCommentLikes = async (req, res) => {
+  try {
+    const commentLikes = await CommentLike.findAll()
+    if (commentLikes.length === 0) {
+      throw new Error(`Comment Likes not found`)
+    }
+    const data = { commentLikes }
+    return sendDataResponse(res, 201, data)
+  } catch (err) {
+    return sendDataResponse(res, 400, { err: err.message })
+  }
+}
+
 export const getAll = async (req, res) => {
   try {
     const posts = await Post.findAll()
@@ -127,6 +141,28 @@ export const updateLike = async (req, res) => {
       Number(userId),
       postId,
       Number(postLikeId)
+    )
+    const newLike = await updateLike.upsertLike()
+    return sendDataResponse(res, 200, newLike)
+  } catch (err) {
+    return sendDataResponse(res, 400, { err: err.message })
+  }
+}
+
+export const updateCommentLike = async (req, res) => {
+  const userId = req.user.id
+  const postId = Number(req.params.id)
+  const commentId = Number(req.params.commentId)
+  const { active, commentLikeId } = req.body
+
+  try {
+    if (!postId) throw new Error('The ID you have provided is incorrect')
+    const updateLike = await CommentLike.fromJson(
+      active,
+      Number(userId),
+      postId,
+      commentId,
+      Number(commentLikeId)
     )
     const newLike = await updateLike.upsertLike()
     return sendDataResponse(res, 200, newLike)

@@ -452,7 +452,7 @@ paths:
     post:
       tags:
         - comment
-      summary: Comment a post
+      summary: Comment on a post
       description: comment a post by id
       operationId: commentPost
       security:
@@ -573,9 +573,32 @@ paths:
          content:
             application/json:
              schema:
-               $ref: '#/components/schemas/Error'      
+               $ref: '#/components/schemas/Error'   
+
+  /post/commentLike:
+    get:
+      tags:
+        - comment
+      summary: Get all comment likes
+      description: get all comment likes
+      operationId: getCommentLikes
+      security:
+        - bearerAuth: []
+      responses: 
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllCommentLikes'          
+        '401':
+          description: fail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'   
               
-  /post/{postId}/comment/{commentId}/like:
+  /post/{postId}/comment/{commentId}/commentLike:
    post:
     tags:
      - comment
@@ -595,6 +618,18 @@ paths:
        required: true
        schema: 
          type: integer
+    requestBody:
+        description: Like (or not) a post
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                active: 
+                  type: boolean
+                commentLikeId: 
+                  type: integer
+                  nullable: true
     responses:
       201:
         description: successful
@@ -1037,6 +1072,37 @@ components:
           type: integer
           format: int64
         postId:
+          type: integer
+          format: int64
+        createdAt:
+          type: string
+          format: string
+        updatedAt:
+          type: string
+          format: string
+        active:
+          type: boolean
+
+    AllCommentLikes:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: object
+          properties:
+            postLikes:
+              type: array
+              items:
+                $ref: '#/components/schemas/CommentLike'
+
+    CommentLike:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+        commentId:
           type: integer
           format: int64
         createdAt:
