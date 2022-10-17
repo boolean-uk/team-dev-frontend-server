@@ -3,13 +3,13 @@ import { sendDataResponse, sendMessageResponse } from '../utils/responses.js'
 
 export const createNote = async (req, res) => {
   const teacherId = req.user.id
-  const studentId = Number(req.params.id)
-  const { content, isEdited } = req.body
+  const studentId = Number(req.params.studentId)
+  const { content } = req.body
   const newNoteData = {
     teacherId,
     studentId,
     content,
-    isEdited
+    isEdited: false
   }
 
   try {
@@ -39,7 +39,7 @@ export const deleteNote = async (req, res) => {
 }
 
 export const getAllNotes = async (req, res) => {
-  const userId = Number(req.params.id)
+  const userId = Number(req.params.studentId)
   const whereData = {}
   whereData.studentId = userId
 
@@ -75,6 +75,7 @@ export const updateNoteById = async (req, res) => {
   try {
     const noteToEdit = await Note.fromJson(req.body)
     noteToEdit.id = Number(id)
+    noteToEdit.isEdited = true
     const note = await noteToEdit.update()
     return sendDataResponse(res, 201, note)
   } catch (err) {
