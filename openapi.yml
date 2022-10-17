@@ -644,16 +644,7 @@ paths:
               data:
                properties:
                 like:
-                 properties:
-                  userId:
-                   type: integer
-                   example: 1
-                  commentId:
-                   type: integer
-                   example: 1
-                  commentLikes:
-                   type: integer
-                   example: 2
+                 $ref: '#/components/schemas/CommentLike'
       '401':
          description: Unauthorised
          content:
