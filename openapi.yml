@@ -1733,3 +1733,4 @@ components:
           type: string 
         unitId:
           type: integer 
+          nullable: true
