@@ -23,3 +23,5 @@ curl -X POST http://localhost:4000/note/1 -H "Authorization: Bearer eyJhbGciOiJI
 curl http://localhost:4000/note/1 -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjAwNzI0NiwiZXhwIjoxNjY2MDkzNjQ2fQ.Gg5aEgkWDBLclh4h_5-aiuj1QYT4OHR-oJzyHZwKozI" -H "Content-Type: application/json"
 
 curl -X PATCH http://localhost:4000/note/1 -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjAwNzI0NiwiZXhwIjoxNjY2MDkzNjQ2fQ.Gg5aEgkWDBLclh4h_5-aiuj1QYT4OHR-oJzyHZwKozI" -H "Content-Type: application/json" -d ' { "content": "really really awesome, actually" }'
+
+curl -X POST http://localhost:4000/exercise -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjE2ODEzMSwiZXhwIjoxNjY2MjU0NTMxfQ.pxBRwH8KNqteK7xiMD9ywk_oUmXRedBMlWJbctlTSTE" -H "Content-Type: application/json" -d '{"exerciseName": "React Events and Forms", "githubUrl": "http://a.url.com", "unitId": 1}'
