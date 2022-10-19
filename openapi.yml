@@ -13,6 +13,7 @@ tags:
   - name: log
   - name: note
   - name: conversation
+  - name: exercise
 paths:
   /user:
     post:
@@ -994,7 +995,99 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'   
+                $ref: '#/components/schemas/Error'  
+
+/exercise:
+    post:
+      tags:
+        - exercise
+      summary: Create exercise
+      description: Create new exercise
+      operationId: createExercise
+      requestBody:
+        description: Exercise details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exercise'
+      responses:
+       '201':        
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatedExercise'
+    get:
+      tags:
+        - exercise
+      summary: Get all exercises
+      description: ''
+      operationId: getAllExercises
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllExercises'
+        '400':
+          description: fail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: fail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+/exercise/{id}:
+  get:
+    tags:
+      - exercise
+    summary: Get exercise by exercise id
+    description: ''
+    operationId: getExerciseByID
+    security:
+      - bearerAuth: []
+    parameters:
+      - name: id
+        in: path
+        description: 'The exercise id that needs to be fetched.'
+        required: true
+        schema:
+          type: string
+    responses:
+      '200':
+        description: successful operation
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                data:
+                  type: object                    
+                  properties:
+                    exercise:
+                        $ref: '#/components/schemas/Exercise'   
+                                            
+      '400':
+        description: fail
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
+      '404':
+        description: fail
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
 
 components:
   securitySchemes:
@@ -1602,12 +1695,27 @@ components:
                         type: integer
                       content:
                         type: string
-  requestBodies:
-    UserArray:
-      description: List of user object
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/User'
+
+    AllExercises:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: object
+          properties:
+            users:
+              type: array
+              items:
+                $ref: '#/components/schemas/User'
+      
+    Exercise:
+      type: object
+      properties:        
+        id: 
+          type: integer
+        exerciseName:
+          type: string
+        githubUrl:
+          type: string 
+        unitId:
