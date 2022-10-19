@@ -170,3 +170,14 @@ export const updateCommentLike = async (req, res) => {
     return sendDataResponse(res, 400, { err: err.message })
   }
 }
+
+export const deletePostComment = async (req, res) => {
+  const { commentId } = req.params
+  try {
+    if (!commentId) throw new Error('The commentId you provided is incorrect')
+    const deletedComment = await PostComment.delete(commentId)
+    return sendDataResponse(res, 200, deletedComment)
+  } catch (err) {
+    return sendDataResponse(res, 400, { err: err.message })
+  }
+}
