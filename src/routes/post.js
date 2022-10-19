@@ -33,7 +33,7 @@ router.post(
 router.get('/postLike', validateAuthentication, findAllPostLikes)
 router.get('/commentLike', validateAuthentication, findAllCommentLikes)
 router.delete(
-  '/id:/comment/:commentId',
+  '/:id/comment/:commentId',
   validateAuthentication,
   deletePostComment
 )
