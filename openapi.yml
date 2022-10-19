@@ -1004,12 +1004,14 @@ paths:
       summary: Create exercise
       description: Create new exercise
       operationId: createExercise
+      security:
+        - bearerAuth: []
       requestBody:
         description: Exercise details
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Exercise'
+              $ref: '#/components/schemas/CreateExercise'
       responses:
        '201':        
           description: Created
@@ -1142,7 +1144,8 @@ components:
     AllPostLikes:
       type: object
       properties:
-        status:
+        status:security:
+        - bearerAuth: []
           type: string
         data:
           type: object
@@ -1714,6 +1717,16 @@ components:
       properties:        
         id: 
           type: integer
+        exerciseName:
+          type: string
+        githubUrl:
+          type: string 
+        unitId:
+          type: integer 
+
+    CreateExercise:
+      type: object
+      properties: 
         exerciseName:
           type: string
         githubUrl:
