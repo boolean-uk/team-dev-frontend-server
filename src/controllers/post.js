@@ -172,7 +172,7 @@ export const updateCommentLike = async (req, res) => {
 }
 
 export const deletePostComment = async (req, res) => {
-  const { commentId } = req.params
+  const { commentId } = Number(req.params)
   try {
     if (!commentId) throw new Error('The commentId you provided is incorrect')
     const deletedComment = await PostComment.delete(commentId)
