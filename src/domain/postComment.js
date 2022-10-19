@@ -86,4 +86,8 @@ export default class PostComment {
       return PostComment.fromDb(comment)
     })
   }
+
+  static async delete(id) {
+    await dbClient.postComment.delete({ where: { id: id } })
+  }
 }

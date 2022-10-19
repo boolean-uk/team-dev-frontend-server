@@ -10,7 +10,8 @@ import {
   editPost,
   deletePost,
   updateLike,
-  updateCommentLike
+  updateCommentLike,
+  deletePostComment
 } from '../controllers/post.js'
 import { validateAuthentication } from '../middleware/auth.js'
 
@@ -31,5 +32,10 @@ router.post(
 )
 router.get('/postLike', validateAuthentication, findAllPostLikes)
 router.get('/commentLike', validateAuthentication, findAllCommentLikes)
+router.delete(
+  '/id:/comment/:commentId',
+  validateAuthentication,
+  deletePostComment
+)
 
 export default router
