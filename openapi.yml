@@ -997,7 +997,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'  
 
-  /exercise:
+  /exercises:
     post:
       tags:
         - exercise
@@ -1046,7 +1046,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /exercise/{id}:
+  /exercises/{id}:
     get:
       tags:
         - exercise
