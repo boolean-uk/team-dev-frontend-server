@@ -1112,20 +1112,24 @@ paths:
         content:
           application/json:
             schema:
-              exerciseId:
-                type: integer
+              type: object
+              properties: 
+                exerciseId:
+                  type: integer
       responses:
        '201':        
           description: Created
           content:
             application/json:
               schema:
-                id:
-                  type: integer
-                exerciseId:
-                  type: integer 
-                cohortId: 
-                  type: integer
+                type: object
+                properties: 
+                  id:
+                    type: integer
+                  exerciseId:
+                    type: integer 
+                  cohortId: 
+                    type: integer
     get:
       tags:
         - exercise
@@ -1157,12 +1161,14 @@ paths:
                       cohortExercise:
                         type: array
                         items: 
-                          id:
-                            type: integer
-                          exerciseId:
-                            type: integer 
-                          cohortId: 
-                            type: integer                                              
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            exerciseId:
+                              type: integer 
+                            cohortId: 
+                              type: integer   
         '400':
           description: fail
           content:
