@@ -93,7 +93,8 @@ export const getAllCohortExercises = async (req, res) => {
 }
 
 export const createCohortExercise = async (req, res) => {
-  const { exerciseId, cohortId } = req.body
+  const cohortId = Number(req.params.id)
+  const { exerciseId } = req.body
 
   try {
     const createdCohortExercise = await CohortExercise.createCohortExercise(

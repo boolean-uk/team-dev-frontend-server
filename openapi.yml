@@ -1091,6 +1091,91 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
+  /exercises/{id}/cohortExercises:
+    post:
+      tags:
+        - exercise
+      summary: Create cohort exercise
+      description: Create new cohort exercise
+      operationId: createCohortExercise
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          description: 'The cohort id for which an exercise needs assigning'
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Cohort exercise details
+        content:
+          application/json:
+            schema:
+              exerciseId:
+                type: integer
+      responses:
+       '201':        
+          description: Created
+          content:
+            application/json:
+              schema:
+                id:
+                  type: integer
+                exerciseId:
+                  type: integer 
+                cohortId: 
+                  type: integer
+    get:
+      tags:
+        - exercise
+      summary: Get all cohort exercise by cohort id
+      description: ''
+      operationId: getExercisesByCohortID
+      security:
+        - bearerAuth: []      
+      parameters:
+        - name: id
+          in: path
+          description: 'The cohort id for which exercises are fetched'
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  data:
+                    type: object                    
+                    properties:
+                      cohortExercise:
+                        type: array
+                        items: 
+                          id:
+                            type: integer
+                          exerciseId:
+                            type: integer 
+                          cohortId: 
+                            type: integer                                              
+        '400':
+          description: fail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: fail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'  
+
 components:
   securitySchemes:
       bearerAuth:
