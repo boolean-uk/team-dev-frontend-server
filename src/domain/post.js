@@ -76,7 +76,12 @@ export default class Post {
     const foundPosts = await dbClient.post.findMany({
       orderBy: { createdAt: 'desc' },
       include: {
-        postComments: { include: { profile: true } },
+        postComments: {
+          include: {
+            profile: true,
+            likes: true
+          }
+        },
         user: { include: { profile: true } },
         postLikes: true
       }
