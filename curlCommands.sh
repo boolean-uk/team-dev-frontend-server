@@ -1,4 +1,5 @@
 curl -X POST http://localhost:4000/login -d "email=teacher@teacher.com&password=t3ach3r"
+curl -X POST http://localhost:4000/login -d "email=test1@test.com&password=t3ach3r"
 
 curl -X PATCH http://localhost:4000/user/update/14 -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NTU3MzE5MSwiZXhwIjoxNjY1NjU5NTkxfQ.QIM0ssvUqZGjZvKsP9bNEeugA0nd0P6xDRsHnlLhMtY" -H "Content-Type: application/json" -d ' { "email": "teacher2@teacher.com", "password": "t3ach3r", "cohortId": 5, "role": "TEACHER", "firstName": "Another", "lastName": "Change", "biography": "blah blah blah blah", "githubUrl": "https://github.com/teach", "profileUrl": "https://dottorato.dimes.unical.it/wp-content/uploads/2015/09/Unknown.jpg" }'
 
@@ -36,3 +37,5 @@ curl -X POST http://localhost:4000/post/1/comment/2/commentLike -H "Authorizatio
 
 curl -X POST http://localhost:4000/post/1/comment/2/commentLike -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjI2MzE1MywiZXhwIjoxNjY2MzQ5NTUzfQ.kb7jiODWSs_STzI5EMcGEMuOsQwlDcKgHu_fXgZoEk0" -H "Content-Type: application/json" -d ' { "active": false, "commentLikeId": 1}'
 curl -X POST http://localhost:4000/post/1/comment/2/commentLike -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjI2MzE1MywiZXhwIjoxNjY2MzQ5NTUzfQ.kb7jiODWSs_STzI5EMcGEMuOsQwlDcKgHu_fXgZoEk0" -H "Content-Type: application/json" -d ' { "active": true, "commentLikeId": 1}'
+
+curl http://localhost:4000/cohort -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTY2NjM0NzQwMCwiZXhwIjoxNjY2NDMzODAwfQ.s2f5ukyUnQHMWte6-GVSDz4X4w25jC7WRYrsyrfyaP8" -H "Content-Type: application/json"

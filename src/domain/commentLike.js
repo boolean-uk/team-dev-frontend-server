@@ -7,7 +7,6 @@ export default class CommentLike {
       commentLike.userId,
       commentLike.postId,
       commentLike.commentId,
-      commentLike.id,
       commentLike.createdAt,
       commentLike.updatedAt
     )

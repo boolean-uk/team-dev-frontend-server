@@ -15,8 +15,8 @@ import {
 const router = Router()
 
 router.post('/', validateAuthentication, validateTeacherRole, create)
-router.get('/', validateAuthentication, validateTeacherRole, cohorts)
-router.get('/:id', validateAuthentication, validateTeacherRole, getCohortById)
+router.get('/', validateAuthentication, cohorts)
+router.get('/:id', validateAuthentication, getCohortById)
 router.get('/:id/name', validateAuthentication, getCohortName)
 router.get(
   '/:id/cohortExercises',
