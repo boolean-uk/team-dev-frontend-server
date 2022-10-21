@@ -29,3 +29,10 @@ curl -X PATCH http://localhost:4000/note/1 -H "Authorization: Bearer eyJhbGciOiJ
 curl -X POST http://localhost:4000/exercise -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjE2ODEzMSwiZXhwIjoxNjY2MjU0NTMxfQ.pxBRwH8KNqteK7xiMD9ywk_oUmXRedBMlWJbctlTSTE" -H "Content-Type: application/json" -d '{"exerciseName": "React Events and Forms", "githubUrl": "http://a.url.com", "unitId": 1}'
 
 curl -X DELETE http://localhost:4000/post/16/comment/16 -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjE5MTU4OSwiZXhwIjoxNjY2Mjc3OTg5fQ.7sbWdmTAGHzM-B7WrjYamoSxEc8fo-lzEohB4zHxEa0" -H "Content-Type: application/json"
+
+curl -X PATCH http://localhost:4000/user/3 -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjI2MzE1MywiZXhwIjoxNjY2MzQ5NTUzfQ.kb7jiODWSs_STzI5EMcGEMuOsQwlDcKgHu_fXgZoEk0" -H "Content-Type: application/json" -d ' { "cohortId": "" }'
+
+curl -X POST http://localhost:4000/post/1/comment/2/commentLike -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjI2MzE1MywiZXhwIjoxNjY2MzQ5NTUzfQ.kb7jiODWSs_STzI5EMcGEMuOsQwlDcKgHu_fXgZoEk0" -H "Content-Type: application/json" -d ' { "active": false }'
+
+curl -X POST http://localhost:4000/post/1/comment/2/commentLike -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjI2MzE1MywiZXhwIjoxNjY2MzQ5NTUzfQ.kb7jiODWSs_STzI5EMcGEMuOsQwlDcKgHu_fXgZoEk0" -H "Content-Type: application/json" -d ' { "active": false, "commentLikeId": 1}'
+curl -X POST http://localhost:4000/post/1/comment/2/commentLike -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY2NjI2MzE1MywiZXhwIjoxNjY2MzQ5NTUzfQ.kb7jiODWSs_STzI5EMcGEMuOsQwlDcKgHu_fXgZoEk0" -H "Content-Type: application/json" -d ' { "active": true, "commentLikeId": 1}'
