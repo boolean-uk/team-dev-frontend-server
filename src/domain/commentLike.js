@@ -17,18 +17,17 @@ export default class CommentLike {
     return new CommentLike(active, userId, postId, commentId, CommentLikeId)
   }
 
-  constructor(active, userId, postId, commentId, id, createdAt, updatedAt) {
+  constructor(active, userId, postId, commentId, createdAt, updatedAt) {
     this.active = active
     this.userId = userId
     this.postId = postId
     this.commentId = commentId
-    this.id = id
     this.createdAt = createdAt
     this.updatedAt = updatedAt
   }
 
   async upsertLike() {
-    if (!this.id) {
+    if (!this.userId && !this.commentId) {
       const createLike = await dbClient.commentLike.create({
         data: {
           userId: this.userId,
@@ -40,7 +39,10 @@ export default class CommentLike {
     } else {
       const updatedLike = await dbClient.commentLike.update({
         where: {
-          commentId: this.commentId
+          userId_commentId: {
+            commentId: this.commentId,
+            userId: this.userId
+          }
         },
         data: {
           active: this.active
