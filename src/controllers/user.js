@@ -114,8 +114,29 @@ export const updateById = async (req, res) => {
 }
 
 export const updateProfile = async (req, res) => {
-  const newUserProfile = await User.fromJson(req.body)
+  const userData = req.body
+  if (req.user.role !== 'TEACHER') {
+    console.log(userData)
+    if (userData.cohortId || userData.role) {
+      return sendDataResponse(res, 401, {
+        message:
+          'Unauthorized: you do not have the permissions to change the users cohort or role'
+      })
+    }
+  }
+
   const userToUpdateId = Number(req.params.id)
+
+  if (req.user.role === 'STUDENT') {
+    if (userToUpdateId !== req.user.id) {
+      return sendDataResponse(res, 401, {
+        message:
+          'Unauthorized: you do not have permissions to update this user profile'
+      })
+    }
+  }
+
+  const newUserProfile = await User.fromJson(req.body)
   newUserProfile.id = userToUpdateId
 
   // console.log('updating', newUserProfile, userToUpdateId, newUserProfile.id)
