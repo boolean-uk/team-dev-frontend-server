@@ -42,19 +42,18 @@ export async function validateAuthentication(req, res, next) {
     })
   }
 
-  try{
+  try {
     const decodedToken = jwt.decode(token)
     const foundUser = await User.findById(decodedToken.userId)
     delete foundUser.passwordHash
-  
+
     req.user = foundUser
 
     next()
-  }catch(e) {
-    console.error('error authenticating user',e)
+  } catch (e) {
+    console.error('error authenticating user', e)
     return sendDataResponse(res, 401, 'Unable to find the logged in user')
   }
-
 }
 
 function validateToken(token) {
