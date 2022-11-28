@@ -138,6 +138,9 @@ export const updateProfile = async (req, res) => {
 
   const newUserProfile = await User.fromJson(req.body)
   newUserProfile.id = userToUpdateId
+  if (!userData.role) {
+    newUserProfile.role = undefined
+  }
 
   // console.log('updating', newUserProfile, userToUpdateId, newUserProfile.id)
 
